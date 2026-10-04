@@ -1,0 +1,557 @@
+/* =========================================================
+   FUENTES
+========================================================= */
+
+@font-face {
+    font-family: "Dx Gotha";
+    src: url("../Media/Type/Dx Gotha - Free Personal.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --color-cream: #f4efe4;
+    --color-pink: #f84794;
+    --color-purple: #6b4f70;
+
+    --font-display: "Dx Gotha", sans-serif;
+    --font-body: "Inter", sans-serif;
+
+    --header-height: 100px;
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+
+    background: var(--color-cream);
+    color: var(--color-purple);
+
+    font-family: var(--font-body);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.site-header {
+    position: fixed;
+    z-index: 100;
+
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    height: var(--header-height);
+
+    padding: 0 5.8%;
+
+    background: var(--color-cream);
+
+    border-radius: 0 0 28px 28px;
+}
+
+
+/* Logo */
+
+.site-logo {
+    display: inline-block;
+
+    color: var(--color-pink);
+
+    font-family: var(--font-display);
+
+    font-size: clamp(30px, 2.55vw, 38px);
+
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   BOTÓN HAMBURGUESA
+========================================================= */
+
+.menu-button {
+    position: relative;
+    z-index: 102;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 7px;
+
+    width: 36px;
+    height: 36px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+.menu-button span {
+    display: block;
+
+    width: 34px;
+    height: 3px;
+
+    border-radius: 999px;
+
+    background: var(--color-pink);
+
+    transition:
+        transform 200ms ease,
+        opacity 200ms ease;
+}
+
+
+/* Hamburguesa → X */
+
+.menu-button[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-button[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   MENÚ
+========================================================= */
+
+.site-menu {
+    position: fixed;
+    z-index: 99;
+
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    width: 100%;
+    min-height: 0;
+
+    padding: calc(var(--header-height) + 18px) 5% 24px;
+
+    background: rgba(245, 240, 228, 0.8);
+
+    border-radius: 0;
+
+    overflow: hidden;
+
+    transform: translateY(-110%);
+    visibility: hidden;
+
+    transition:
+        transform 350ms cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 0s linear 350ms;
+}
+
+.site-menu::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: 0.12;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");
+
+    mix-blend-mode: multiply;
+}
+
+.site-menu.is-open {
+    transform: translateY(0);
+
+    visibility: visible;
+}
+
+
+.site-menu__links {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 16px;
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+}
+
+
+.site-menu__link {
+    color: var(--color-purple);
+
+    font-family: var(--font-body);
+
+    font-size: 20px;
+    font-weight: 500;
+
+    transition: color 180ms ease;
+}
+
+.site-menu__link:hover {
+    color: var(--color-pink);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+
+    background: #172022;
+}
+
+
+/* Imagen */
+
+.hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 0%;
+    transform: scale(1.08);
+    transform-origin: center top;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 0.10;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='.5'/%3E%3C/svg%3E");
+
+    mix-blend-mode: overlay;
+}
+
+/* Contenido */
+
+.hero__content {
+    position: absolute;
+    z-index: 2;
+    left: 5.75%;
+    top: calc(var(--header-height) + 18%);
+}
+
+
+/* Título */
+
+.hero__title {
+    margin: 0;
+    color: var(--color-pink);
+    font-family: var(--font-display);
+    font-size: clamp(90px, 10vw, 155px);
+    font-weight: 400;
+    line-height: 0.9;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   BOTONES HERO
+========================================================= */
+
+.hero__actions {
+    display: flex;
+    align-items: center;
+
+    gap: 60px;
+
+    margin-top: 52px;
+    margin-left: 0.7%;
+}
+
+
+.hero__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 176px;
+    height: 48px;
+
+    border-radius: 999px;
+
+    font-family: var(--font-body);
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    transition: transform 180ms ease;
+}
+
+
+.hero__button:hover {
+    transform: translateY(-2px);
+}
+
+
+.hero__button--primary {
+    color: #ffffff;
+
+    background: var(--color-purple);
+}
+
+
+.hero__button--secondary {
+    color: var(--color-purple);
+
+    background: var(--color-cream);
+}
+
+
+/* =========================================================
+   SCROLL
+========================================================= */
+
+.scroll-indicator {
+    position: absolute;
+
+    z-index: 3;
+
+    left: 50%;
+    bottom: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 52px;
+    height: 52px;
+
+    /*
+     * IMPORTANTE:
+     * el translateX(-50%) hace que el centro real
+     * del círculo coincida con el centro del viewport.
+     */
+    transform: translateX(-50%);
+
+    border: 3px solid var(--color-cream);
+
+    border-radius: 50%;
+
+    background: transparent;
+}
+
+
+.scroll-indicator span {
+    width: 17px;
+    height: 17px;
+
+    border-right: 3px solid var(--color-cream);
+    border-bottom: 3px solid var(--color-cream);
+
+    transform: translateY(-3px) rotate(45deg);
+}
+
+
+/* =========================================================
+   SECCIÓN TEMPORAL
+========================================================= */
+
+.placeholder-section {
+    height: 1px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    :root {
+        --header-height: 104px;
+    }
+
+    .site-header {
+        padding: 0 6%;
+
+        border-radius: 0 0 24px 24px;
+    }
+
+    .hero {
+        min-height: 100vh;
+        height: 100vh;
+    }
+
+    .hero__content {
+        left: 6%;
+        top: calc(var(--header-height) + 18%);
+    }
+
+    .hero__title {
+        font-size: clamp(82px, 15vw, 135px);
+    }
+
+    .hero__actions {
+        gap: 24px;
+        margin-top: 42px;
+    }
+
+    .hero__button {
+        width: 160px;
+        height: 46px;
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    :root {
+        --header-height: 88px;
+    }
+
+    .site-header {
+        padding: 0 7%;
+    }
+
+    .site-logo {
+        font-size: 29px;
+    }
+
+    .menu-button,
+    .menu-button span {
+        width: 30px;
+    }
+
+    .menu-button {
+        gap: 6px;
+    }
+
+    .menu-button span {
+        height: 2.5px;
+    }
+
+    .hero {
+        min-height: 100svh;
+        height: 100svh;
+    }
+
+    .hero__image {
+        object-position: center 0%;
+    }
+
+    .hero__content {
+        left: 6%;
+        top: calc(var(--header-height) + 18%);
+        right: 6%;
+    }
+
+    .hero__title {
+        font-size: clamp(68px, 19vw, 110px);
+        white-space: normal;
+    }
+
+    .hero__actions {
+        gap: 12px;
+        margin-top: 34px;
+        margin-left: 0;
+    }
+
+    .hero__button {
+        width: min(42vw, 170px);
+        height: 44px;
+        font-size: 17px;
+    }
+
+
+    .site-menu__link {
+        font-size: 21px;
+    }
+
+    .scroll-indicator {
+        bottom: 28px;
+
+        width: 44px;
+        height: 44px;
+
+        border-width: 2px;
+    }
+
+    .scroll-indicator span {
+        width: 15px;
+        height: 15px;
+
+        border-width: 2px;
+    }
+}
