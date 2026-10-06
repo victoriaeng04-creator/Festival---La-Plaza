@@ -18,7 +18,7 @@
 :root {
     --color-cream: #f4efe4;
     --color-pink: #f84794;
-    --color-purple: #6b4f70;
+    --color-purple: #1e191f;
 
     --font-display: "Dx Gotha", sans-serif;
     --font-body: "Inter", sans-serif;
@@ -231,7 +231,7 @@ a {
 
 
 .site-menu__link {
-    color: var(--color-purple);
+    color: var(--color-pink);
 
     font-family: var(--font-body);
 
@@ -361,9 +361,9 @@ a {
 
 
 .hero__button--primary {
-    color: #ffffff;
+    color: var(--color-purple);
 
-    background: var(--color-purple);
+    background: var(--color-cream);
 }
 
 
@@ -420,12 +420,12 @@ a {
 
 
 /* =========================================================
-   SECCIÓN CARTELERA
+   SECCIÓN ABOUT
 ========================================================= */
 
 .about-section {
     position: relative;
-
+    z-index: 1;
     width: 100%;
     min-height: 570px;
 
@@ -529,6 +529,619 @@ a {
 
 
 /* =========================================================
+   CARTELERA
+========================================================= */
+
+.cartelera-section {
+    position: relative;
+
+    width: 100%;
+    min-height: 774px;
+
+    box-sizing: border-box;
+
+    background-color: var(--color-purple);
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.cartelera-section__title {
+    position: absolute;
+
+    top: 64px;
+    left: 57px;
+
+    margin: 0;
+
+    color: var(--color-pink);
+
+    font-family: var(--font-body);
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+
+/* =========================================================
+   ARTISTAS
+========================================================= */
+
+.cartelera-section__artists {
+    position: absolute;
+
+    top: 97px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 195px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.cartelera-section__artist {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 38px;
+
+    box-sizing: border-box;
+
+    background-color: var(--color-cream);
+    color: var(--color-purple);
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+/* Solo las dos esquinas superiores
+   del primer elemento */
+
+.cartelera-section__artist:first-child {
+    border-radius: 15px 15px 0 0;
+}
+
+
+/* Solo las dos esquinas inferiores
+   del último elemento */
+
+.cartelera-section__artist:last-child {
+    border-radius: 0 0 15px 15px;
+}
+
+
+/* =========================================================
+   BOTÓN VER PROGRAMA
+========================================================= */
+
+.cartelera-section__program {
+    position: absolute;
+
+    left: 50%;
+    bottom: 50px;
+
+    transform: translateX(-50%);
+
+    width: 150px;
+    height: 30px;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 999px;
+
+    background-color: var(--color-pink);
+    color: var(--color-cream);
+
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   IMÁGENES
+========================================================= */
+
+.cartelera-section__image {
+    position: absolute;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* Imagen superior derecha */
+
+.cartelera-section__image--top {
+    top: 109px;
+    right: 112px;
+
+    width: 173px;
+    height: 161px;
+}
+
+
+/* Imagen izquierda */
+
+.cartelera-section__image--left {
+    top: 320px;
+    left: 67px;
+
+    width: 117px;
+    height: 161px;
+}
+
+
+/* Imagen inferior derecha */
+
+.cartelera-section__image--bottom {
+    right: 65px;
+    bottom: 86px;
+
+    width: 103px;
+    height: 143px;
+}
+
+
+/* =========================================================
+   V.2026
+========================================================= */
+
+.cartelera-section__version {
+    position: absolute;
+
+    top: 296px;
+    right: 57px;
+
+    color: var(--color-pink);
+
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 400;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   GRÁFICO
+========================================================= */
+
+.cartelera-section__graphic {
+    position: absolute;
+
+    top: 468px;
+    left: 112px;
+
+    width: 195px;
+    height: auto;
+}
+
+
+
+
+/* =========================================================
+   INFO SECTION
+========================================================= */
+
+.info-section {
+    position: relative;
+
+    width: 100%;
+
+    background-color: #f3eee3;
+
+    padding: 30px 0;
+
+    overflow: hidden;
+}
+
+/* =========================================================
+   GRÁFICOS DECORATIVOS
+========================================================= */
+
+.info-section__graphics {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+.info-section__graphic {
+    position: absolute;
+
+    width: 280px;
+    height: 150px;
+
+    object-fit: contain;
+
+    filter: brightness(0);
+
+    opacity: 0.85;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+
+/* =========================================================
+   GRÁFICOS — FILA SUPERIOR
+========================================================= */
+
+.info-section__graphic--1 {
+    top: -25px;
+    left: 30px;
+}
+
+.info-section__graphic--2 {
+    top: -20px;
+    left: 39%;
+}
+
+.info-section__graphic--3 {
+    top: -25px;
+    right: 30px;
+}
+
+
+/* =========================================================
+   GRÁFICOS — FILA INFERIOR
+========================================================= */
+
+.info-section__graphic--4 {
+    bottom: -25px;
+    left: 30px;
+}
+
+.info-section__graphic--5 {
+    bottom: -20px;
+    left: 39%;
+}
+
+.info-section__graphic--6 {
+    bottom: -25px;
+    right: 30px;
+}
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.info-section__cards {
+    position: relative;
+
+    z-index: 1;
+
+    width: 86%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 28px;
+}
+
+
+.info-section__card {
+    position: relative;
+
+    flex: 1;
+    max-width: 220px;
+    aspect-ratio: 1 / 1;
+
+    background-color: #f43f91;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 0;
+}
+
+
+/* Primera tarjeta */
+
+.info-section__card:first-child {
+    border-radius: 16px 0 0 16px;
+}
+
+
+/* Tarjetas centrales */
+
+.info-section__card:nth-child(2),
+.info-section__card:nth-child(3) {
+    border-radius: 0;
+}
+
+
+/* Última tarjeta */
+
+.info-section__card:last-child {
+    border-radius: 0 16px 16px 0;
+}
+
+
+/* =========================================================
+   TEXTO
+========================================================= */
+
+.info-section__text {
+    position: relative;
+
+    z-index: 3;
+
+    margin: 0;
+
+    text-align: center;
+
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.15;
+    font-weight: 400;
+
+    color: #f3eee3;
+}
+
+/* =========================================================
+   GALERÍA + NEWSLETTER
+========================================================= */
+
+.gallery-newsletter {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.gallery-section {
+    position: relative;
+
+    width: 100%;
+
+    background-color: #f43f91;
+
+    padding: 20px 0 250px;
+}
+
+
+.gallery-section__title {
+    width: 90%;
+    max-width: 1120px;
+
+    margin: 0 auto 40px;
+
+    font-family: var(--font-body);
+    font-size: 24px;
+    line-height: 1;
+
+    font-weight: 600;
+
+    color: #f3eee3;
+}
+
+
+.gallery-section__images {
+    width: 82%;
+    max-width: 1060px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+
+.gallery-section__image {
+    width: calc((100% - 48px) / 4);
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 16px;
+}
+
+
+/* =========================================================
+   NEWSLETTER
+========================================================= */
+
+.newsletter-section {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+
+    background-image: url("../Media/Img/06.webp");
+
+    background-size: cover;
+    background-position: center;
+
+    display: flex;
+    align-items: center;
+
+    box-sizing: border-box;
+}
+
+
+.newsletter-section__content {
+    width: 90%;
+    max-width: 1120px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+}
+
+
+/* =========================================================
+   TEXTO NEWSLETTER
+========================================================= */
+
+.newsletter-section__text {
+    flex: 1;
+}
+
+
+.newsletter-section__title {
+    margin: 0 0 10px;
+
+    font-family: var(--font-body);
+    font-size: 24px;
+    line-height: 1.1;
+
+    font-weight: 600;
+
+    color: #f3eee3;
+}
+
+
+.newsletter-section__title span {
+    color: #f43f91;
+}
+
+
+.newsletter-section__subtitle {
+    margin: 0;
+
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.2;
+
+    color: #f3eee3;
+}
+
+
+/* =========================================================
+   FORMULARIO
+========================================================= */
+
+.newsletter-section__form {
+    width: 48%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 20px;
+}
+
+
+.newsletter-section__input {
+    width: 100%;
+    height: 30px;
+
+    padding: 0 20px;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: #f3eee3;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+
+    text-align: center;
+
+    color: #f43f91;
+
+    outline: none;
+}
+
+
+.newsletter-section__input::placeholder {
+    color: #f43f91;
+    opacity: 1;
+}
+
+
+.newsletter-section__button {
+    width: 100px;
+    height: 30px;
+
+    border: none;
+    border-radius: 20px;
+
+    background-color: #f43f91;
+
+    font-family: var(--font-body);
+    font-size: 12px;
+
+    color: #f3eee3;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   GRÁFICO QUE UNE LAS DOS SECCIONES
+========================================================= */
+
+.gallery-newsletter__graphic {
+    position: absolute;
+
+    z-index: 5;
+
+    width: 150px;
+    height: auto;
+
+    right: 4%;
+
+    top: 245px;
+
+    transform: rotate(90deg);
+
+    filter: brightness(0) invert(1);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
    TABLET
 ========================================================= */
 
@@ -540,7 +1153,8 @@ a {
 
     .site-header {
         padding: 0 6%;
-
+        position: relative;
+        z-index: 100;
         border-radius: 0 0 24px 24px;
     }
 
