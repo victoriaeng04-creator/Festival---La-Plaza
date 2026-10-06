@@ -737,9 +737,6 @@ a {
     height: auto;
 }
 
-
-
-
 /* =========================================================
    INFO SECTION
 ========================================================= */
@@ -748,167 +745,143 @@ a {
     position: relative;
 
     width: 100%;
-
-    background-color: #f3eee3;
-
-    padding: 30px 0;
+    height: 92px;
 
     overflow: hidden;
+
+    background-color: var(--color-cream);
 }
+
 
 /* =========================================================
-   GRÁFICOS DECORATIVOS
+   GRÁFICOS 04
 ========================================================= */
-
-.info-section__graphics {
-    position: absolute;
-
-    inset: 0;
-
-    z-index: 2;
-
-    pointer-events: none;
-}
-
 
 .info-section__graphic {
     position: absolute;
 
-    width: 280px;
-    height: 150px;
+    z-index: 2;
 
-    object-fit: contain;
+    width: 100%;
+    height: 34px;
 
-    filter: brightness(0);
-
-    opacity: 0.85;
+    object-fit: cover;
 
     pointer-events: none;
     user-select: none;
 }
 
 
-/* =========================================================
-   GRÁFICOS — FILA SUPERIOR
-========================================================= */
+/* Gráfico superior */
 
-.info-section__graphic--1 {
-    top: -25px;
-    left: 30px;
-}
-
-.info-section__graphic--2 {
-    top: -20px;
-    left: 39%;
-}
-
-.info-section__graphic--3 {
-    top: -25px;
-    right: 30px;
+.info-section__graphic--top {
+    top: 0;
+    left: 0;
 }
 
 
-/* =========================================================
-   GRÁFICOS — FILA INFERIOR
-========================================================= */
+/* Gráfico inferior */
 
-.info-section__graphic--4 {
-    bottom: -25px;
-    left: 30px;
-}
+.info-section__graphic--bottom {
+    bottom: 0;
+    left: 0;
 
-.info-section__graphic--5 {
-    bottom: -20px;
-    left: 39%;
-}
-
-.info-section__graphic--6 {
-    bottom: -25px;
-    right: 30px;
-}
-
-/* =========================================================
-   TARJETAS
-========================================================= */
-
-.info-section__cards {
-    position: relative;
-
-    z-index: 1;
-
-    width: 86%;
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: 28px;
-}
-
-
-.info-section__card {
-    position: relative;
-
-    flex: 1;
-    max-width: 220px;
-    aspect-ratio: 1 / 1;
-
-    background-color: #f43f91;
-
-    overflow: hidden;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 0;
-}
-
-
-/* Primera tarjeta */
-
-.info-section__card:first-child {
-    border-radius: 16px 0 0 16px;
-}
-
-
-/* Tarjetas centrales */
-
-.info-section__card:nth-child(2),
-.info-section__card:nth-child(3) {
-    border-radius: 0;
-}
-
-
-/* Última tarjeta */
-
-.info-section__card:last-child {
-    border-radius: 0 16px 16px 0;
+    transform: rotate(180deg);
 }
 
 
 /* =========================================================
-   TEXTO
+   MARQUEE INFO
 ========================================================= */
 
-.info-section__text {
-    position: relative;
+.info-section__marquee {
+    --gap: 2rem;
+
+    position: absolute;
 
     z-index: 3;
 
-    margin: 0;
+    top: 50%;
+    left: 0;
 
-    text-align: center;
+    transform: translateY(-50%);
+
+    display: flex;
+
+    width: 100%;
+
+    gap: var(--gap);
+
+    overflow: hidden;
+
+    user-select: none;
+
+    padding: 0.8rem 0;
+
+    background: transparent;
+
+    color: var(--color-purple);
+}
+
+/* Cada copia ocupa como mínimo
+   todo el ancho del viewport */
+
+.info-section__marquee-content {
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    gap: var(--gap);
+
+    min-width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    animation: info-marquee 20s linear infinite;
+}
+
+
+/* Texto */
+
+.info-section__marquee-content li {
+    flex-shrink: 0;
 
     font-family: var(--font-body);
-    font-size: 18px;
-    line-height: 1.15;
+
+    font-size: 13px;
     font-weight: 400;
 
-    color: #f3eee3;
+    line-height: 1;
+
+    white-space: nowrap;
+}
+
+.info-section__marquee-content li.info-section__marquee-brand {
+    font-family: var(--font-display);
+    color: var(--color-pink);
+}
+
+/* =========================================================
+   ANIMACIÓN INFINITA
+========================================================= */
+
+@keyframes info-marquee {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(calc(-100% - var(--gap)));
+    }
+
 }
 
 /* =========================================================
@@ -932,53 +905,141 @@ a {
     position: relative;
 
     width: 100%;
+    height: 500px;
 
-    background-color: #f43f91;
+    box-sizing: border-box;
 
-    padding: 20px 0 250px;
+    background-color: var(--color-cream);
+
+    overflow: visible;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+
+/* =========================================================
+   TÍTULO
+========================================================= */
 
 .gallery-section__title {
-    width: 90%;
-    max-width: 1120px;
+    width: 82%;
+    max-width: 1100px;
 
-    margin: 0 auto 40px;
+    margin: 0 auto 35px;
 
     font-family: var(--font-body);
-    font-size: 24px;
-    line-height: 1;
-
+    font-size: 27px;
     font-weight: 600;
 
-    color: #f3eee3;
+    color: var(--color-pink);
 }
 
+
+/* =========================================================
+   IMÁGENES
+========================================================= */
 
 .gallery-section__images {
     width: 82%;
-    max-width: 1060px;
+    max-width: 1100px;
 
     margin: 0 auto;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 
-    gap: 16px;
+    gap: clamp(10px, 1.5vw, 20px);
 }
 
 
 .gallery-section__image {
-    width: calc((100% - 48px) / 4);
+    width: calc((100% - 60px) / 4);
 
     aspect-ratio: 1 / 1;
 
     object-fit: cover;
 
-    border-radius: 16px;
+    border-radius: 0 30px 0 30px;
+
+    transition: transform 300ms ease;
 }
 
+
+.gallery-section__image:hover {
+    transform: scale(1.1);
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .gallery-section__title {
+        width: 88%;
+    }
+
+    .gallery-section__images {
+        width: 88%;
+
+        gap: 10px;
+    }
+
+    .gallery-section__image {
+        width: calc((100% - 30px) / 4);
+
+        border-radius: 0 20px 0 20px;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .gallery-section {
+        height: auto;
+        min-height: 500px;
+
+        padding: 60px 0;
+    }
+
+
+    .gallery-section__title {
+        width: 88%;
+
+        margin-bottom: 25px;
+
+        font-size: 24px;
+    }
+
+
+    .gallery-section__images {
+        width: 88%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+
+    .gallery-section__image {
+        width: 100%;
+
+        border-radius: 0 20px 0 20px;
+    }
+
+}
 
 /* =========================================================
    NEWSLETTER
@@ -991,7 +1052,12 @@ a {
     height: 100vh;
     min-height: 100vh;
 
-    background-image: url("../Media/Img/06.webp");
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.12),
+            rgba(0, 0, 0, 0.12)
+        ),
+        url("../Media/Img/06.webp");
 
     background-size: cover;
     background-position: center;
@@ -1002,6 +1068,10 @@ a {
     box-sizing: border-box;
 }
 
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
 
 .newsletter-section__content {
     width: 90%;
@@ -1018,7 +1088,7 @@ a {
 
 
 /* =========================================================
-   TEXTO NEWSLETTER
+   TEXTO
 ========================================================= */
 
 .newsletter-section__text {
@@ -1035,12 +1105,12 @@ a {
 
     font-weight: 600;
 
-    color: #f3eee3;
+    color: var(--color-cream);
 }
 
 
 .newsletter-section__title span {
-    color: #f43f91;
+    color: var(--color-pink);
 }
 
 
@@ -1051,7 +1121,7 @@ a {
     font-size: 14px;
     line-height: 1.2;
 
-    color: #f3eee3;
+    color: var(--color-cream);
 }
 
 
@@ -1072,53 +1142,62 @@ a {
 
 
 .newsletter-section__input {
-    width: 100%;
-    height: 30px;
-
+    width: 50%;
+    max-width: 400px;
+    height: 42px;
+    box-sizing: border-box;
     padding: 0 20px;
 
     border: none;
-    border-radius: 20px;
+    border-radius: 30px;
 
-    background-color: #f3eee3;
+    background-color: var(--color-cream);
 
     font-family: var(--font-body);
     font-size: 12px;
 
     text-align: center;
 
-    color: #f43f91;
-
+    color: var(--color-pink);
     outline: none;
 }
 
 
 .newsletter-section__input::placeholder {
-    color: #f43f91;
+    color: var(--color-pink);
+
     opacity: 1;
 }
 
 
 .newsletter-section__button {
     width: 100px;
-    height: 30px;
+    height: 42px;
 
+    padding: 0;
     border: none;
-    border-radius: 20px;
+    border-radius: 30px;
 
-    background-color: #f43f91;
-
+    background-color: var(--color-pink);
     font-family: var(--font-body);
     font-size: 12px;
-
-    color: #f3eee3;
+    color: var(--color-cream);
 
     cursor: pointer;
+
+    transition:
+        transform 180ms ease;
+}
+
+
+.newsletter-section__button:hover {
+    transform: scale(1.05);
 }
 
 
 /* =========================================================
-   GRÁFICO QUE UNE LAS DOS SECCIONES
+   GRÁFICO 02
+   UNE GALERÍA + NEWSLETTER
 ========================================================= */
 
 .gallery-newsletter__graphic {
@@ -1126,20 +1205,142 @@ a {
 
     z-index: 5;
 
-    width: 150px;
+    width: 500px;
     height: auto;
-
-    right: 4%;
-
-    top: 245px;
+    right: 3%;
+    top: 300px;
 
     transform: rotate(90deg);
-
-    filter: brightness(0) invert(1);
-
+    opacity: 0.8;
     pointer-events: none;
 }
 
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .gallery-section__images {
+        width: 84%;
+    }
+
+
+    .gallery-section__title {
+        width: 84%;
+    }
+
+
+    .newsletter-section__content {
+        width: 84%;
+        gap: 40px;
+    }
+
+
+    .newsletter-section__form {
+        width: 50%;
+    }
+
+
+    .gallery-newsletter__graphic {
+        width: 130px;
+
+        right: 3%;
+    }
+
+}
+
+
+/* =========================================================
+   MÓVIL
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .info-section {
+        height: 76px;
+    }
+
+
+    .info-section__graphic {
+        height: 38px;
+    }
+
+
+    .info-section__marquee-group {
+        gap: 40px;
+        padding-right: 40px;
+    }
+
+
+    .info-section__marquee-group span {
+        font-size: 10px;
+    }
+
+
+    .gallery-section {
+        padding: 24px 0 60px;
+    }
+
+
+    .gallery-section__title {
+        width: 88%;
+
+        margin-bottom: 28px;
+
+        font-size: 22px;
+    }
+
+
+    .gallery-section__images {
+        width: 88%;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+
+    .gallery-section__image {
+        width: 100%;
+    }
+
+
+    .newsletter-section {
+        height: 100svh;
+        min-height: 100svh;
+    }
+
+
+    .newsletter-section__content {
+        width: 88%;
+
+        flex-direction: column;
+
+        align-items: stretch;
+        justify-content: center;
+
+        gap: 40px;
+    }
+
+
+    .newsletter-section__form {
+        width: 100%;
+    }
+
+
+    .gallery-newsletter__graphic {
+        width: 100px;
+
+        right: 2%;
+
+        top: auto;
+        bottom: calc(100svh - 80px);
+    }
+
+}
 
 /* =========================================================
    TABLET
