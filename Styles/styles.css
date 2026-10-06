@@ -974,6 +974,375 @@ a {
     z-index: 2;
 }
 
+/* =========================================================
+   ENTRADAS
+========================================================= */
+
+.tickets-section {
+    position: relative;
+
+    width: 100%;
+    min-height: calc(100vh - 86px);
+
+    background-image: url("../Media/Img/03.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: calc(var(--header-height) + 40px) 0 70px;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.tickets-section__content {
+    position: relative;
+
+    z-index: 2;
+
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULO
+========================================================= */
+
+.tickets-section__title {
+    margin: 0 0 40px;
+
+    font-family: var(--font-body);
+    font-size: 24px;
+    font-weight: 700;
+
+    color: var(--color-pink);
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.tickets-section__cards {
+    display: flex;
+
+    align-items: stretch;
+    justify-content: center;
+
+    gap: 20px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   TARJETA INDIVIDUAL
+========================================================= */
+
+.tickets-section__card {
+    position: relative;
+
+    width: 50%;
+    max-width: 560px;
+
+    min-height: 250px;
+
+    padding: 38px 30px 25px;
+
+    border-radius: 0 30px 0 30px;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Primera tarjeta */
+
+.tickets-section__card--day {
+    background-color: rgba(243, 238, 227, 0.85);
+}
+
+
+/* Segunda tarjeta */
+
+.tickets-section__card--pass {
+    background-color: rgba(244, 63, 145, 0.8);
+}
+
+
+/* =========================================================
+   CABECERA DE TARJETA
+========================================================= */
+
+.tickets-section__card-header {
+    display: flex;
+
+    align-items: baseline;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   TÍTULO DE TARJETA
+========================================================= */
+
+.tickets-section__card-title {
+    margin: 0;
+
+    font-family: var(--font-body);
+    font-size: 22px;
+    font-weight: 700;
+
+    line-height: 1.1;
+
+    color: var(--color-pink);
+}
+
+
+/* El título del abono */
+
+.tickets-section__card--pass
+.tickets-section__card-title {
+    color: var(--color-cream);
+}
+
+
+/* =========================================================
+   VERSIÓN
+========================================================= */
+
+.tickets-section__version {
+    flex-shrink: 0;
+
+    font-family: var(--font-display);
+    font-size: 18px;
+
+    color: var(--color-purple);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN
+========================================================= */
+
+.tickets-section__description {
+    max-width: 520px;
+
+    margin: 0 0 12px;
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    color: var(--color-pink);
+}
+
+
+/* Descripción del abono */
+
+.tickets-section__card--pass
+.tickets-section__description {
+    color: var(--color-cream);
+}
+
+
+/* =========================================================
+   PRECIO
+========================================================= */
+
+.tickets-section__price {
+    margin: 0 0 12px;
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 700;
+
+    color: var(--color-pink);
+}
+
+
+.tickets-section__card--pass
+.tickets-section__price {
+    color: var(--color-cream);
+}
+
+
+/* =========================================================
+   SELECCIÓN DE DÍA
+========================================================= */
+
+/* =========================================================
+   DÍAS DE LA ENTRADA
+========================================================= */
+
+.tickets-section__days {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 10px;
+}
+
+
+.tickets-section__day {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    height: 30px;
+
+    padding: 0;
+
+    border: 1px solid var(--color-pink);
+    border-radius: 999px;
+
+    background-color: transparent;
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+
+    color: var(--color-pink);
+
+    cursor: pointer;
+}
+
+
+/* Cuando esté seleccionado */
+
+.tickets-section__day.is-selected {
+    background-color: var(--color-pink);
+    color: var(--color-cream);
+}
+
+
+/* =========================================================
+   BOTÓN COMPRAR
+========================================================= */
+
+.tickets-section__buy {
+    align-self: center;
+
+    width: 150px;
+    height: 30px;
+
+    margin-top: auto;
+
+    border: none;
+    border-radius: 999px;
+
+    background-color: var(--color-purple);
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+
+    color: var(--color-cream);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+
+.tickets-section__buy:hover {
+    opacity: 0.9;
+
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .tickets-section {
+        min-height: calc(100vh - 86px);
+
+        padding: 50px 0;
+    }
+
+
+    .tickets-section__cards {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+
+    .tickets-section__card {
+        width: 100%;
+        max-width: 560px;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .tickets-section {
+        padding: 40px 0;
+    }
+
+
+    .tickets-section__content {
+        width: 88%;
+    }
+
+
+    .tickets-section__title {
+        margin-bottom: 25px;
+    }
+
+
+    .tickets-section__card {
+        padding: 28px 20px 22px;
+    }
+
+
+    .tickets-section__card-header {
+        align-items: flex-start;
+    }
+
+
+    .tickets-section__card-title {
+        font-size: 20px;
+    }
+
+
+    .tickets-section__version {
+        font-size: 16px;
+    }
+
+
+    .tickets-section__days {
+        gap: 8px;
+    }
+
+
+    .tickets-section__day span {
+        width: 130px;
+    }
+
+}
 
 /* =========================================================
    TABLET
