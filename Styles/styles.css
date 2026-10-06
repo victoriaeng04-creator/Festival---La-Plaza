@@ -743,7 +743,7 @@ a {
 
 .info-section {
     position: relative;
-
+    z-index: 100;
     width: 100%;
     height: 92px;
 
