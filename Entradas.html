@@ -89,143 +89,230 @@
     <main>
 
 
-        <!-- =================================================
-         ENTRADAS
-        ================================================== -->
-
         <section
-            class="tickets-section"
-            id="entradas"
-        >
+    class="tickets-section"
+    id="entradas"
+>
 
-            <div class="tickets-section__content">
+    <div class="tickets-section__content">
 
+        <h1 class="tickets-section__title">
+            Entradas
+        </h1>
 
-                <h1 class="tickets-section__title">
-                    Entradas
-                </h1>
+        <div class="tickets-section__cards">
 
+            <!-- =====================================
+                 SÁBADO 17
+            ====================================== -->
 
-                <div class="tickets-section__cards">
+            <article class="tickets-section__card">
 
+                <div class="tickets-section__card-header">
 
-                    <!-- =====================================
-                         ENTRADA UN DÍA
-                    ====================================== -->
+                    <h2 class="tickets-section__card-title">
+                        Sábado 17
+                    </h2>
 
-                    <article
-                        class="
-                            tickets-section__card
-                            tickets-section__card--day
-                        "
-                    >
-
-                        <div class="tickets-section__card-header">
-
-                            <h2 class="tickets-section__card-title">
-                                La Plaza - Un Día
-                            </h2>
-
-                            <span class="tickets-section__version">
-                                v.2026
-                            </span>
-
-                        </div>
-
-
-                        <p class="tickets-section__description">
-                            Abono de un día. Acceso el Sábado o el Domingo
-                            desde que se abran las puertas y hasta el cierre
-                            de las mismas
-                        </p>
-
-
-                        <p class="tickets-section__price">
-                            42€
-                        </p>
-
-
-                        <div class="tickets-section__days">
-
-                            <button
-                                class="tickets-section__day"
-                                type="radio"
-                            >
-                                Sábado 17
-                            </button>
-
-                            <button
-                                class="tickets-section__day"
-                                type="radio"
-                            >
-                                Domingo 18
-                            </button>
-
-                        </div>
-
-
-                        <button
-                            class="tickets-section__buy"
-                            type="button"
-                        >
-                            Comprar
-                        </button>
-
-                    </article>
-
-
-                    <!-- =====================================
-                         ABONO
-                    ====================================== -->
-
-                    <article
-                        class="
-                            tickets-section__card
-                            tickets-section__card--pass
-                        "
-                    >
-
-                        <div class="tickets-section__card-header">
-
-                            <h2 class="tickets-section__card-title">
-                                La Plaza - Abono
-                            </h2>
-
-                            <span class="tickets-section__version">
-                                v.2026
-                            </span>
-
-                        </div>
-
-
-                        <p class="tickets-section__description">
-                            Abono de fin de semana. Acceso el Sábado y el
-                            Domingo desde que se abran las puertas y hasta el
-                            cierre de las mismas.
-                        </p>
-
-
-                        <p class="tickets-section__price">
-                            63€
-                        </p>
-
-
-                        <button
-                            class="tickets-section__buy"
-                            type="button"
-                        >
-                            Comprar
-                        </button>
-
-                    </article>
-
+                    <span class="tickets-section__version">
+                        v.2026
+                    </span>
 
                 </div>
 
-            </div>
+                <p class="tickets-section__description">
+                    Acceso durante todo el sábado desde que se abran
+                    las puertas y hasta el cierre de las mismas.
+                </p>
 
-        </section>
+                <p class="tickets-section__price">
+                    42€
+                </p>
 
+                <div class="tickets-section__quantity">
+
+                    <button
+                        class="tickets-section__quantity-button"
+                        type="button"
+                        data-action="decrease"
+                        data-ticket="saturday"
+                    >
+                        −
+                    </button>
+
+                    <span
+                        class="tickets-section__quantity-number"
+                        data-quantity="saturday"
+                    >
+                        0
+                    </span>
+
+                    <button
+                        class="tickets-section__quantity-button"
+                        type="button"
+                        data-action="increase"
+                        data-ticket="saturday"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 DOMINGO 18
+            ====================================== -->
+
+            <article class="tickets-section__card">
+
+                <div class="tickets-section__card-header">
+
+                    <h2 class="tickets-section__card-title">
+                        Domingo 18
+                    </h2>
+
+                    <span class="tickets-section__version">
+                        v.2026
+                    </span>
+
+                </div>
+
+                <p class="tickets-section__description">
+                    Acceso durante todo el domingo desde que se abran
+                    las puertas y hasta el cierre de las mismas.
+                </p>
+
+                <p class="tickets-section__price">
+                    42€
+                </p>
+
+                <div class="tickets-section__quantity">
+
+                    <button
+                        class="tickets-section__quantity-button"
+                        type="button"
+                        data-action="decrease"
+                        data-ticket="sunday"
+                    >
+                        −
+                    </button>
+
+                    <span
+                        class="tickets-section__quantity-number"
+                        data-quantity="sunday"
+                    >
+                        0
+                    </span>
+
+                    <button
+                        class="tickets-section__quantity-button"
+                        type="button"
+                        data-action="increase"
+                        data-ticket="sunday"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- =====================================
+                 ABONO
+            ====================================== -->
+
+            <article class="tickets-section__card">
+
+                <div class="tickets-section__card-header">
+
+                    <h2 class="tickets-section__card-title">
+                        Abono
+                    </h2>
+
+                    <span class="tickets-section__version">
+                        v.2026
+                    </span>
+
+                </div>
+
+                <p class="tickets-section__description">
+                    Acceso el sábado y el domingo desde que se abran
+                    las puertas y hasta el cierre de las mismas.
+                </p>
+
+                <p class="tickets-section__price">
+                    63€
+                </p>
+
+                <div class="tickets-section__quantity">
+
+                    <button
+                        class="tickets-section__quantity-button"
+                        type="button"
+                        data-action="decrease"
+                        data-ticket="pass"
+                    >
+                        −
+                    </button>
+
+                    <span
+                        class="tickets-section__quantity-number"
+                        data-quantity="pass"
+                    >
+                        0
+                    </span>
+
+                    <button
+                        class="tickets-section__quantity-button"
+                        type="button"
+                        data-action="increase"
+                        data-ticket="pass"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+<!-- =====================================
+     TARJETA TOTAL Y COMPRA
+====================================== -->
+
+<div class="tickets-section__checkout">
+
+    <div class="tickets-section__total">
+
+        <span class="tickets-section__total-label">
+            Total
+        </span>
+
+        <span
+            class="tickets-section__total-price"
+            id="totalPrice"
+        >
+            0€
+        </span>
+
+    </div>
+
+    <button
+        class="tickets-section__buy tickets-section__buy--disabled"
+        id="comprarEntradas"
+        type="button"
+        disabled
+    >
+        Comprar
+    </button>
+
+</div>
+
+</section>
 
         <!-- =================================================
              PROGRAMA
@@ -360,8 +447,8 @@
         </section>
 
         <!-- =================================================
-     MARQUEE
-================================================== -->
+        MARQUEE
+        ================================================== -->
 
 <div class="tickets-marquee">
 

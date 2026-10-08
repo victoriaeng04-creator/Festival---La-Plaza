@@ -905,24 +905,42 @@ a {
     z-index: 2;
 }
 
+
 /* =========================================================
    ENTRADAS
 ========================================================= */
 
 .tickets-section {
     position: relative;
+    isolation: isolate;
 
     width: 100%;
     min-height: calc(100vh - 86px);
+
+    background-color: var(--color-purple);
+
+    padding: calc(var(--header-height) + 40px) 0 70px;
+
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+/* Fotografía de fondo al 50% */
+
+.tickets-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
 
     background-image: url("../Media/Img/03.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 
-    padding: calc(var(--header-height) + 40px) 0 70px;
-
-    overflow: hidden;
+    opacity: 0.5;
 }
 
 
@@ -932,7 +950,6 @@ a {
 
 .tickets-section__content {
     position: relative;
-
     z-index: 2;
 
     width: 90%;
@@ -963,12 +980,10 @@ a {
 
 .tickets-section__cards {
     display: flex;
-
     align-items: stretch;
     justify-content: center;
 
     gap: 20px;
-
     width: 100%;
 }
 
@@ -980,32 +995,27 @@ a {
 .tickets-section__card {
     position: relative;
 
-    width: 50%;
+    flex: 1 1 0;
+    min-width: 0;
     max-width: 560px;
-
     min-height: 250px;
 
-    padding: 38px 30px 25px;
+    padding: 38px 25px 25px;
+    box-sizing: border-box;
 
     border-radius: 0 30px 0 30px;
-
     overflow: hidden;
 
     display: flex;
     flex-direction: column;
-}
 
-
-/* Primera tarjeta */
-
-.tickets-section__card--day {
     background-color: rgba(243, 238, 227, 0.85);
 }
 
 
-/* Segunda tarjeta */
+/* Tarjeta de abono */
 
-.tickets-section__card--pass {
+.tickets-section__card:last-child {
     background-color: rgba(244, 63, 145, 0.8);
 }
 
@@ -1016,12 +1026,10 @@ a {
 
 .tickets-section__card-header {
     display: flex;
-
     align-items: baseline;
     justify-content: space-between;
 
     gap: 15px;
-
     margin-bottom: 8px;
 }
 
@@ -1036,16 +1044,15 @@ a {
     font-family: var(--font-body);
     font-size: 22px;
     font-weight: 700;
-
     line-height: 1.1;
 
     color: var(--color-pink);
 }
 
 
-/* El título del abono */
+/* Título del abono */
 
-.tickets-section__card--pass
+.tickets-section__card:last-child
 .tickets-section__card-title {
     color: var(--color-cream);
 }
@@ -1077,7 +1084,6 @@ a {
     font-family: var(--font-body);
     font-size: 13px;
     font-weight: 400;
-
     line-height: 1.2;
 
     color: var(--color-pink);
@@ -1086,7 +1092,7 @@ a {
 
 /* Descripción del abono */
 
-.tickets-section__card--pass
+.tickets-section__card:last-child
 .tickets-section__description {
     color: var(--color-cream);
 }
@@ -1107,82 +1113,50 @@ a {
 }
 
 
-.tickets-section__card--pass
+/* Precio del abono */
+
+.tickets-section__card:last-child
 .tickets-section__price {
     color: var(--color-cream);
 }
 
 
 /* =========================================================
-   SELECCIÓN DE DÍA
+   CONTADOR DE ENTRADAS
 ========================================================= */
 
-/* =========================================================
-   DÍAS DE LA ENTRADA
-========================================================= */
-
-.tickets-section__days {
-    display: flex;
-    gap: 14px;
-    margin-bottom: 10px;
-}
-
-
-.tickets-section__day {
+.tickets-section__quantity {
     display: flex;
     align-items: center;
     justify-content: center;
 
-    width: 150px;
-    height: 30px;
+    gap: 18px;
+    margin-top: auto;
+    padding-top: 20px;
+}
 
+
+.tickets-section__quantity-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 32px;
+    height: 32px;
     padding: 0;
 
-    border: 1px solid var(--color-pink);
-    border-radius: 999px;
+    border: none;
+    border-radius: 50%;
 
-    background-color: transparent;
-
-    font-family: var(--font-body);
-    font-size: 13px;
-    font-weight: 400;
-
-    color: var(--color-pink);
-
-    cursor: pointer;
-}
-
-
-/* Cuando esté seleccionado */
-
-.tickets-section__day.is-selected {
     background-color: var(--color-pink);
     color: var(--color-cream);
-}
-
-
-/* =========================================================
-   BOTÓN COMPRAR
-========================================================= */
-
-.tickets-section__buy {
-    align-self: center;
-
-    width: 150px;
-    height: 30px;
-
-    margin-top: auto;
-
-    border: none;
-    border-radius: 999px;
-
-    background-color: var(--color-purple);
 
     font-family: var(--font-body);
-    font-size: 13px;
+    font-size: 20px;
     font-weight: 400;
-
-    color: var(--color-cream);
+    line-height: 1;
 
     cursor: pointer;
 
@@ -1192,40 +1166,188 @@ a {
 }
 
 
-.tickets-section__buy:hover {
-    opacity: 0.9;
+.tickets-section__quantity-button:hover {
+    opacity: 0.85;
+    transform: scale(1.05);
+}
 
+
+.tickets-section__quantity-number {
+    min-width: 20px;
+
+    color: var(--color-pink);
+
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* Contador del abono */
+
+.tickets-section__card:last-child
+.tickets-section__quantity-number {
+    color: var(--color-cream);
+}
+
+
+.tickets-section__card:last-child
+.tickets-section__quantity-button {
+    background-color: var(--color-cream);
+    color: var(--color-pink);
+}
+
+/* =========================================
+   TARJETA TOTAL Y COMPRA
+========================================= */
+
+.tickets-section__checkout {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: fit-content;
+    min-width: 270px;
+    box-sizing: border-box;
+
+    margin: 35px auto 0;
+    padding: 25px 35px;
+
+    border-radius: 0 30px 0 30px;
+
+    background-color: rgba(243, 238, 227, 0.9);
+}
+
+
+/* Total en Inter */
+
+.tickets-section__checkout .tickets-section__total {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    margin: 0;
+}
+
+.tickets-section__checkout .tickets-section__total-label {
+    color: var(--color-pink);
+    font-family: var(--font-body);
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.tickets-section__checkout .tickets-section__total-price {
+    color: var(--color-pink);
+    font-family: var(--font-body);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+
+/* Botón Comprar */
+
+.tickets-section__checkout .tickets-section__buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    align-self: center;
+
+    width: 150px;
+    height: 35px;
+    min-height: 35px;
+
+    margin: 22px 0 0;
+    padding: 0 15px;
+
+    border: none;
+    border-radius: 999px;
+
+    background-color: var(--color-purple);
+    color: var(--color-cream);
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+
+    opacity: 1;
+    cursor: pointer;
+
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tickets-section__checkout .tickets-section__buy:hover:not(:disabled) {
+    opacity: 0.9;
     transform: scale(1.03);
+}
+
+.tickets-section__checkout .tickets-section__buy:disabled {
+    background-color: var(--color-purple);
+    color: var(--color-cream);
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* Móvil */
+
+@media (max-width: 500px) {
+    .tickets-section__checkout {
+        width: 100%;
+        min-width: 0;
+        margin-top: 30px;
+        padding: 25px 20px;
+    }
 }
 
 
 /* =========================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
 ========================================================= */
 
 @media (max-width: 800px) {
 
     .tickets-section {
         min-height: calc(100vh - 86px);
-
         padding: 50px 0;
     }
 
 
     .tickets-section__cards {
         flex-direction: column;
-
         align-items: center;
+        gap: 20px;
     }
 
 
     .tickets-section__card {
+        flex: none;
         width: 100%;
         max-width: 560px;
+        min-height: 250px;
+    }
+
+
+    .tickets-section__total {
+        margin-top: 35px;
     }
 
 }
 
+
+/* =========================================================
+   RESPONSIVE — MÓVIL
+========================================================= */
 
 @media (max-width: 500px) {
 
@@ -1264,13 +1386,24 @@ a {
     }
 
 
-    .tickets-section__days {
-        gap: 8px;
+    .tickets-section__quantity {
+        gap: 16px;
     }
 
 
-    .tickets-section__day span {
-        width: 130px;
+    .tickets-section__total {
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+
+    .tickets-section__total-label {
+        font-size: 22px;
+    }
+
+
+    .tickets-section__total-price {
+        font-size: 18px;
     }
 
 }

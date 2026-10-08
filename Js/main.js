@@ -74,3 +74,123 @@ if (newsletterForm && newsletterMessage) {
     });
 
 }
+
+/* =========================================
+   ENTRADAS
+========================================= */
+
+var ticketPrices = {
+    saturday: 42,
+    sunday: 42,
+    pass: 63
+};
+
+var ticketQuantities = {
+    saturday: 0,
+    sunday: 0,
+    pass: 0
+};
+
+var quantityNumbers = {
+    saturday: document.querySelector('[data-quantity="saturday"]'),
+    sunday: document.querySelector('[data-quantity="sunday"]'),
+    pass: document.querySelector('[data-quantity="pass"]')
+};
+
+var totalPrice = document.getElementById("totalPrice");
+var comprarEntradas = document.getElementById("comprarEntradas");
+
+var quantityButtons = document.querySelectorAll(
+    ".tickets-section__quantity-button"
+);
+
+
+/* Actualizar cantidades y total */
+
+function actualizarEntradas() {
+    var total = 0;
+
+    total += ticketQuantities.saturday * ticketPrices.saturday;
+    total += ticketQuantities.sunday * ticketPrices.sunday;
+    total += ticketQuantities.pass * ticketPrices.pass;
+
+    if (quantityNumbers.saturday) {
+        quantityNumbers.saturday.textContent = ticketQuantities.saturday;
+    }
+
+    if (quantityNumbers.sunday) {
+        quantityNumbers.sunday.textContent = ticketQuantities.sunday;
+    }
+
+    if (quantityNumbers.pass) {
+        quantityNumbers.pass.textContent = ticketQuantities.pass;
+    }
+
+    if (totalPrice) {
+        totalPrice.textContent = total + "€";
+    }
+
+    if (comprarEntradas) {
+        var hayEntradas = total > 0;
+
+        comprarEntradas.disabled = !hayEntradas;
+
+        comprarEntradas.classList.toggle(
+            "tickets-section__buy--disabled",
+            !hayEntradas
+        );
+    }
+}
+
+
+/* Botones + y − */
+
+quantityButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+        var ticket = this.getAttribute("data-ticket");
+        var action = this.getAttribute("data-action");
+
+        if (!Object.prototype.hasOwnProperty.call(ticketQuantities, ticket)) {
+            return;
+        }
+
+        if (action === "increase") {
+            ticketQuantities[ticket]++;
+        }
+
+        if (action === "decrease" && ticketQuantities[ticket] > 0) {
+            ticketQuantities[ticket]--;
+        }
+
+        actualizarEntradas();
+    });
+});
+
+
+/* Botón Comprar */
+
+if (comprarEntradas) {
+    comprarEntradas.addEventListener("click", function () {
+        if (comprarEntradas.disabled) {
+            return;
+        }
+
+        var totalEntradas =
+            ticketQuantities.saturday +
+            ticketQuantities.sunday +
+            ticketQuantities.pass;
+
+        alert(
+            "Has seleccionado " +
+            totalEntradas +
+            (totalEntradas === 1 ? " entrada." : " entradas.") +
+            "\nTotal: " +
+            totalPrice.textContent
+        );
+    });
+}
+
+
+/* Inicializar cantidades y total */
+
+actualizarEntradas();
