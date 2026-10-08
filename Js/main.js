@@ -49,3 +49,28 @@
     }
 
 }());
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+var newsletterForm = document.querySelector(".newsletter-section__form");
+var newsletterMessage = document.querySelector(".newsletter-section__message");
+
+if (newsletterForm && newsletterMessage) {
+
+    newsletterForm.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        newsletterMessage.classList.add("is-visible");
+
+        newsletterForm.reset();
+
+        setTimeout(function () {
+            newsletterMessage.classList.remove("is-visible");
+        }, 3000);
+
+    });
+
+}
