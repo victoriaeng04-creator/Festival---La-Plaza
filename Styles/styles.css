@@ -653,9 +653,7 @@ a {
 }
 
 
-/* =========================================================
-   BOTÓN VER PROGRAMA
-========================================================= */
+/* BOTÓN VER PROGRAMA */
 
 .cartelera-section__program {
     position: absolute;
@@ -665,11 +663,15 @@ a {
 
     transform: translateX(-50%);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 150px;
     height: 30px;
-
     padding: 0;
 
+    box-sizing: border-box;
     border: none;
     border-radius: 999px;
 
@@ -679,8 +681,11 @@ a {
     font-family: var(--font-body);
     font-size: 12px;
     font-weight: 400;
-
     line-height: 1;
+
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
 
     cursor: pointer;
 }
