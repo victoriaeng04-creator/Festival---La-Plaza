@@ -2411,6 +2411,7 @@ a {
 
     .site-header {
         padding: 0 7%;
+        position: fixed
     }
 
     .site-logo {
@@ -2465,6 +2466,7 @@ a {
 
     .site-menu__link {
         font-size: 21px;
+        position: fixed
     }
 
     .scroll-indicator {
