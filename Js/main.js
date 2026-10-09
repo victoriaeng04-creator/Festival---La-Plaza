@@ -54,19 +54,37 @@
    NEWSLETTER
 ========================================= */
 
-var newsletterForm = document.querySelector(".newsletter-section__form");
-var newsletterMessage = document.querySelector(".newsletter-section__message");
+/* =========================================
+   NEWSLETTER — VALIDACIÓN
+========================================= */
+
+var newsletterForm = document.querySelector(
+    ".newsletter-section__form"
+);
+
+var newsletterMessage = document.querySelector(
+    ".newsletter-section__message"
+);
 
 if (newsletterForm && newsletterMessage) {
 
     newsletterForm.addEventListener("submit", function (event) {
 
+        // Evita el envío si los campos no son válidos
         event.preventDefault();
 
+        // Comprueba los campos y muestra los errores del navegador
+        if (!newsletterForm.checkValidity()) {
+            newsletterForm.reportValidity();
+            return;
+        }
+
+        // Solo llegamos aquí si los datos son válidos
         newsletterMessage.classList.add("is-visible");
 
         newsletterForm.reset();
 
+        // Oculta el mensaje después de 3 segundos
         setTimeout(function () {
             newsletterMessage.classList.remove("is-visible");
         }, 3000);
