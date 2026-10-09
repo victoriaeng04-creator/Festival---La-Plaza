@@ -12,7 +12,6 @@
 
     <title>La Plaza — Entradas</title>
 
-        <!-- Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,14 +19,7 @@
         rel="stylesheet"
     >
 
-    <!-- =====================================================
-         CSS
-    ====================================================== -->
-
-    <link
-        rel="stylesheet"
-        href="Styles/styles.css"
-    >
+    <link rel="stylesheet" href="Styles/styles.css">
 
 </head>
 
@@ -35,9 +27,7 @@
 <body>
 
 
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
+    <!-- HEADER -->
         <header class="site-header">
 
     <a class="site-logo" href="Index.html" aria-label="La Plaza">
@@ -90,9 +80,7 @@
 </nav>
 
 
-    <!-- =====================================================
-         MAIN
-    ====================================================== -->
+    <!-- MAIN -->
 
     <main>
 
@@ -110,9 +98,7 @@
 
         <div class="tickets-section__cards">
 
-            <!-- =====================================
-                 SÁBADO 17
-            ====================================== -->
+            <!-- Sábado 17 -->
 
             <article class="tickets-section__card">
 
@@ -169,9 +155,7 @@
             </article>
 
 
-            <!-- =====================================
-                 DOMINGO 18
-            ====================================== -->
+            <!-- Domingo 18 -->
 
             <article class="tickets-section__card">
 
@@ -228,9 +212,7 @@
             </article>
 
 
-            <!-- =====================================
-                 ABONO
-            ====================================== -->
+            <!-- Abono -->
 
             <article class="tickets-section__card">
 
@@ -288,47 +270,43 @@
 
         </div>
 
-<!-- =====================================
-     TARJETA TOTAL Y COMPRA
-====================================== -->
+        <!-- Total y -->
 
-<div class="tickets-section__checkout">
+        <div class="tickets-section__checkout">
+        
+            <div class="tickets-section__total">
+            
+                <span class="tickets-section__total-label">
+                    Total
+                </span>
+            
+                <span
+                    class="tickets-section__total-price"
+                    id="totalPrice"
+                >
+                    0€
+                </span>
+            
+            </div>
+        
+            <button
+                class="tickets-section__buy tickets-section__buy--disabled"
+                id="comprarEntradas"
+                type="button"
+                disabled
+            >
+                Comprar
+            </button>
+        
+        </div>
 
-    <div class="tickets-section__total">
+        <!-- Modal de Compra -->
 
-        <span class="tickets-section__total-label">
-            Total
-        </span>
-
-        <span
-            class="tickets-section__total-price"
-            id="totalPrice"
-        >
-            0€
-        </span>
-
-    </div>
-
-    <button
-        class="tickets-section__buy tickets-section__buy--disabled"
-        id="comprarEntradas"
-        type="button"
-        disabled
-    >
-        Comprar
-    </button>
-
-</div>
-
-<!-- =====================================
-     MODAL DE COMPRA
-====================================== -->
-
-<div
+    <div
     class="ticket-modal"
     id="ticketModal"
     aria-hidden="true"
->
+    >
     <div class="ticket-modal__overlay" data-close-modal></div>
 
     <div
@@ -379,15 +357,14 @@
 
         </form>
     </div>
-</div>
+        </div>
 
 </section>
 
-        <!-- =================================================
-             PROGRAMA
-        ================================================== -->
 
-        <section
+ <!-- PROGRAMA -->
+
+<section
             class="program-section"
             id="programa"
         >
@@ -402,10 +379,7 @@
 
                 <div class="program-section__cards">
 
-
-                    <!-- =====================================
-                         17 OCTUBRE
-                    ====================================== -->
+                    <!-- 17 Octubre -->
 
                     <article class="program-section__card">
 
@@ -455,10 +429,7 @@
 
                     </article>
 
-
-                    <!-- =====================================
-                         18 OCTUBRE
-                    ====================================== -->
+                    <!-- 18 Octubre -->
 
                     <article class="program-section__card">
 
@@ -513,11 +484,10 @@
 
             </div>
 
-        </section>
+</section>
 
-        <!-- =================================================
-        MARQUEE
-        ================================================== -->
+
+<!-- MARQUEE -->
 
 <div class="tickets-marquee">
 
@@ -549,12 +519,11 @@
     </ul>
 
 </div>
-        
-     <!-- =========================================================
-     LA PLAZA
-    ========================================================= -->
+   
 
-    <section class="plaza-section" id="la-plaza">
+<!-- LA PLAZA -->
+
+<section class="plaza-section" id="la-plaza">
 
         <div class="plaza-section__content">
 
@@ -566,9 +535,8 @@
 
     </section>
 
-<!-- =================================================
-     MARQUEE
-================================================== -->
+
+<!-- MARQUEE -->
 
 <div class="tickets-marquee">
 
@@ -602,9 +570,7 @@
 </div>
 
 
-        <!-- =================================================
-             NEWSLETTER
-        ================================================== -->
+<!--  NEWSLETTER -->
 
     <section
             class="newsletter-section"
@@ -662,9 +628,7 @@
     </main>
 
 
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
+<!-- FOOTER -->
 
     <footer class="footer">
 

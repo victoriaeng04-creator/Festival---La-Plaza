@@ -10,9 +10,7 @@
     }
 
 
-    /* =========================================
-       ABRIR / CERRAR MENÚ
-    ========================================= */
+    /* ABRIR / CERRAR MENÚ */
 
     menuButton.addEventListener("click", function () {
 
@@ -29,9 +27,7 @@
     });
 
 
-    /* =========================================
-       CERRAR AL SELECCIONAR UNA OPCIÓN
-    ========================================= */
+    /* CERRAR AL SELECCIONAR UNA OPCIÓN */
 
     for (var i = 0; i < menuLinks.length; i++) {
 
@@ -50,9 +46,7 @@
 
 }());
 
-/* =========================================
-   NEWSLETTER — VALIDACIÓN
-========================================= */
+/* NEWSLETTER — VALIDACIÓN */
 
 var newsletterForm = document.querySelector(
     ".newsletter-section__form"
@@ -89,9 +83,7 @@ if (newsletterForm && newsletterMessage) {
 
 }
 
-/* =========================================
-   ENTRADAS
-========================================= */
+/* ENTRADAS */
 
 var ticketPrices = {
     saturday: 42,
@@ -181,9 +173,7 @@ quantityButtons.forEach(function (button) {
 });
 
 
-/* =========================================
-   MODAL DE COMPRA
-========================================= */
+/* MODAL DE COMPRA */
 
 var ticketModal = document.getElementById("ticketModal");
 var ticketEmailForm = document.getElementById("ticketEmailForm");
