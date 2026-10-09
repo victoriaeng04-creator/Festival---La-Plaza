@@ -51,10 +51,6 @@
 }());
 
 /* =========================================
-   NEWSLETTER
-========================================= */
-
-/* =========================================
    NEWSLETTER — VALIDACIÓN
 ========================================= */
 
@@ -185,30 +181,70 @@ quantityButtons.forEach(function (button) {
 });
 
 
-/* Botón Comprar */
+/* =========================================
+   MODAL DE COMPRA
+========================================= */
 
-if (comprarEntradas) {
+var ticketModal = document.getElementById("ticketModal");
+var ticketEmailForm = document.getElementById("ticketEmailForm");
+var ticketEmail = document.getElementById("ticketEmail");
+
+var closeModalButtons = document.querySelectorAll("[data-close-modal]");
+
+
+/* Abrir modal al pulsar Comprar */
+
+if (comprarEntradas && ticketModal) {
     comprarEntradas.addEventListener("click", function () {
-        if (comprarEntradas.disabled) {
-            return;
+        if (comprarEntradas.disabled) return;
+
+        ticketModal.classList.add("is-open");
+        ticketModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+
+        if (ticketEmail) {
+            ticketEmail.focus();
         }
-
-        var totalEntradas =
-            ticketQuantities.saturday +
-            ticketQuantities.sunday +
-            ticketQuantities.pass;
-
-        alert(
-            "Has seleccionado " +
-            totalEntradas +
-            (totalEntradas === 1 ? " entrada." : " entradas.") +
-            "\nTotal: " +
-            totalPrice.textContent
-        );
     });
 }
 
 
-/* Inicializar cantidades y total */
+/* Cerrar modal */
 
-actualizarEntradas();
+function cerrarTicketModal() {
+    if (!ticketModal) return;
+
+    ticketModal.classList.remove("is-open");
+    ticketModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+}
+
+closeModalButtons.forEach(function (button) {
+    button.addEventListener("click", cerrarTicketModal);
+});
+
+
+/* Cerrar con Escape */
+
+document.addEventListener("keydown", function (event) {
+    if (
+        event.key === "Escape" &&
+        ticketModal &&
+        ticketModal.classList.contains("is-open")
+    ) {
+        cerrarTicketModal();
+    }
+});
+
+
+/* Enviar entradas al correo y volver al inicio */
+
+if (ticketEmailForm) {
+    ticketEmailForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        if (!ticketEmailForm.reportValidity()) return;
+
+        window.location.href = "Index.html";
+    });
+}

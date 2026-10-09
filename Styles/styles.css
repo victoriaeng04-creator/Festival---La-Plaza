@@ -627,6 +627,19 @@ a {
     z-index: 2;
 }
 
+/* Hover de los artistas */
+
+.cartelera-section__artist {
+    transition:
+        font-size 0.2s ease,
+        font-weight 0.2s ease;
+    cursor: pointer;
+}
+
+.cartelera-section__artist:hover {
+    font-size: 16px;
+    font-weight: 700;
+}
 
 /* =========================================================
    NOMBRES
@@ -688,6 +701,15 @@ a {
     white-space: nowrap;
 
     cursor: pointer;
+
+        transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.cartelera-section__program:hover {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.05);
 }
 
 
@@ -1303,6 +1325,177 @@ a {
     transform: none;
 }
 
+/* =========================================
+   MODAL DE COMPRA
+========================================= */
+
+.ticket-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: transparent;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 250ms ease,
+        visibility 250ms ease;
+}
+
+.ticket-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.ticket-modal__overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(30, 25, 31, 0.75);
+    backdrop-filter: blur(5px);
+}
+
+.ticket-modal__content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 460px;
+    padding: 45px 32px 32px;
+    box-sizing: border-box;
+
+    border-radius: 0 30px 0 30px;
+    background: var(--color-cream);
+
+    text-align: center;
+
+    transform: translateY(12px);
+    transition: transform 250ms ease;
+}
+
+.ticket-modal.is-open .ticket-modal__content {
+    transform: translateY(0);
+}
+
+.ticket-modal__close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+
+    padding: 0;
+    border: 0;
+    background: transparent;
+
+    color: var(--color-pink);
+    font-family: var(--font-body);
+    font-size: 30px;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.ticket-modal__title {
+    margin: 0 0 15px;
+
+    color: var(--color-pink);
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.ticket-modal__description {
+    margin: 0 0 25px;
+
+    color: var(--color-purple);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.ticket-modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ticket-modal__label {
+    color: var(--color-pink);
+    font-family: var(--font-body);
+    font-size: 13px;
+    text-align: left;
+}
+
+.ticket-modal__input {
+    width: 100%;
+    height: 45px;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    border: 1px solid var(--color-pink);
+    border-radius: 999px;
+    outline: none;
+
+    background: transparent;
+    color: var(--color-purple);
+
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+.ticket-modal__input::placeholder {
+    color: var(--color-pink);
+    opacity: 0.7;
+}
+
+.ticket-modal__input:focus {
+    box-shadow: 0 0 0 2px rgba(248, 71, 148, 0.2);
+}
+
+.ticket-modal__submit {
+    width: 100%;
+    min-height: 45px;
+    margin-top: 8px;
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 999px;
+
+    background: var(--color-pink);
+    color: var(--color-cream);
+
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: opacity 200ms ease;
+}
+
+.ticket-modal__submit:hover {
+    opacity: 0.85;
+}
+
+@media (max-width: 500px) {
+    .ticket-modal__content {
+        padding: 42px 22px 28px;
+    }
+
+    .ticket-modal__title {
+        font-size: 28px;
+    }
+}
 
 /* Móvil */
 

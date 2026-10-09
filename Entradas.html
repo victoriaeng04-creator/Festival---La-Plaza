@@ -312,6 +312,67 @@
 
 </div>
 
+<!-- =====================================
+     MODAL DE COMPRA
+====================================== -->
+
+<div
+    class="ticket-modal"
+    id="ticketModal"
+    aria-hidden="true"
+>
+    <div class="ticket-modal__overlay" data-close-modal></div>
+
+    <div
+        class="ticket-modal__content"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="ticketModalTitle"
+    >
+        <button
+            class="ticket-modal__close"
+            type="button"
+            aria-label="Cerrar"
+            data-close-modal
+        >
+            ×
+        </button>
+
+        <h2 class="ticket-modal__title" id="ticketModalTitle">
+            ¡Ya casi son tuyas!
+        </h2>
+
+        <p class="ticket-modal__description">
+            Introduce tu correo electrónico para continuar.
+        </p>
+
+        <form class="ticket-modal__form" id="ticketEmailForm">
+
+            <label class="ticket-modal__label" for="ticketEmail">
+                Correo electrónico
+            </label>
+
+            <input
+                class="ticket-modal__input"
+                id="ticketEmail"
+                name="email"
+                type="email"
+                placeholder="tu@email.com"
+                autocomplete="email"
+                required
+            >
+
+            <button
+                class="ticket-modal__submit"
+                type="submit"
+            >
+                Enviar entradas al correo
+            </button>
+
+        </form>
+    </div>
+</div>
+
 </section>
 
         <!-- =================================================
